@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/player.gd" type="Script" id=1]
+[ext_resource path="res://gfx/erinaceus.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.340151
+height = 0.337808
+
+[node name="player" type="KinematicBody" groups=[
+"player",
+]]
+script = ExtResource( 1 )
+move_speed = 70
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0.510483, 0 )
+shape = SubResource( 1 )
+
+[node name="Sprite3D" type="Sprite3D" parent="." groups=[
+"sprite",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.511715, 0 )
+pixel_size = 0.004
+texture = ExtResource( 2 )
+
+[node name="pick_up_position" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20843, 0 )

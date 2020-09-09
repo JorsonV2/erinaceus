@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/leaf.gd" type="Script" id=1]
+[ext_resource path="res://gfx/leafes/leaf_red.png" type="Texture" id=2]
+
+[sub_resource type="CylinderShape" id=1]
+radius = 0.854671
+height = 0.478858
+
+[sub_resource type="SphereShape" id=2]
+radius = 0.357595
+
+[node name="leaf" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Sprite3D" type="Sprite3D" parent="." groups=[
+"sprite",
+]]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0.403494, 0 )
+texture = ExtResource( 2 )
+
+[node name="Area" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.360122, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 1 )
+
+[node name="RigidBody" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.359216, 0 )
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+shape = SubResource( 2 )
